@@ -1,0 +1,4159 @@
+{
+  "name": "Registro diario de material v8",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2496,
+        -992
+      ],
+      "id": "2971f105-dc53-4e20-863b-1a893e4f2fa9",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1QE7Q2AYxv5C8A4gBQCEVbTpFxxLcePGERQr5fe6s7Xc/edit?usp=sharing",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 335404203,
+          "mode": "list",
+          "cachedResultName": "Respuestas de formulario 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QE7Q2AYxv5C8A4gBQCEVbTpFxxLcePGERQr5fe6s7Xc/edit#gid=335404203"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Proc_n8n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1744,
+        -784
+      ],
+      "id": "a4cef299-82ab-409d-abb0-ec1aadaa3be5",
+      "name": "Leer forms",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SIz17ktDmDxRT1lA",
+          "name": "Google Sheets account 3_v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1QE7Q2AYxv5C8A4gBQCEVbTpFxxLcePGERQr5fe6s7Xc",
+          "mode": "list",
+          "cachedResultName": "FBR - Registro de material",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QE7Q2AYxv5C8A4gBQCEVbTpFxxLcePGERQr5fe6s7Xc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 335404203,
+          "mode": "list",
+          "cachedResultName": "Respuestas de formulario",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QE7Q2AYxv5C8A4gBQCEVbTpFxxLcePGERQr5fe6s7Xc/edit#gid=335404203"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Marca temporal": "={{ $json['Marca temporal'] }}",
+            "ID_Rtas": "={{ $json.ID_Rtas }}",
+            "ID_REG_HIST": "={{ $json.ID_REG_HIST }}",
+            "Proc_n8n": "={{ $json.Proc_n8n }}"
+          },
+          "matchingColumns": [
+            "Marca temporal"
+          ],
+          "schema": [
+            {
+              "id": "ID_Rtas",
+              "displayName": "ID_Rtas",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Proc_n8n",
+              "displayName": "Proc_n8n",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ID_REG_HIST",
+              "displayName": "ID_REG_HIST",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Marca temporal",
+              "displayName": "Marca temporal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1.1. Sucursal",
+              "displayName": "1.1. Sucursal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1.2. Fecha del retiro",
+              "displayName": "1.2. Fecha del retiro",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1.3. Responsable del ingreso / pesaje",
+              "displayName": "1.3. Responsable del ingreso / pesaje",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "1.4. Comentario general del retiro (Hace falta informar algo que pueda mejorar?)",
+              "displayName": "1.4. Comentario general del retiro (Hace falta informar algo que pueda mejorar?)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.1. Orgánico mixto (kg)",
+              "displayName": "2.1. Orgánico mixto (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.2. Orgánico vegetal (kg)",
+              "displayName": "2.2. Orgánico vegetal (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.3. Hueso (kg)",
+              "displayName": "2.3. Hueso (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.4. Sebo (kg)",
+              "displayName": "2.4. Sebo (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.5. Puchero (kg)",
+              "displayName": "2.5. Puchero (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.6. Cartón (kg)",
+              "displayName": "2.6. Cartón (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.7. Plástico (kg)",
+              "displayName": "2.7. Plástico (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.8. Inorgánicos (vidrio, metales, tetra) (kg)",
+              "displayName": "2.8. Inorgánicos (vidrio, metales, tetra) (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.9. PDA (kg)",
+              "displayName": "2.9. PDA (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.10. Descarte animal (kg)",
+              "displayName": "2.10. Descarte animal (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.11. Descarte general (kg)",
+              "displayName": "2.11. Descarte general (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.12. Comentario/detalle sobre el descarte",
+              "displayName": "2.12. Comentario/detalle sobre el descarte",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "2.13. Hubo un ingreso extraordinario?",
+              "displayName": "2.13. Hubo un ingreso extraordinario?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "3.1. Indicar el tipo de material (Ej. Madera / Papel / Libros / Mobiliario / etc)",
+              "displayName": "3.1. Indicar el tipo de material (Ej. Madera / Papel / Libros / Mobiliario / etc)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "3.2. Indicar el peso del material extra (kg)",
+              "displayName": "3.2. Indicar el peso del material extra (kg)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "3.3. Comentario / descripción / detalles",
+              "displayName": "3.3. Comentario / descripción / detalles",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "3.4. Subir una foto del material extraordinario",
+              "displayName": "3.4. Subir una foto del material extraordinario",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1312,
+        -672
+      ],
+      "id": "cff98b69-0980-4d32-938a-a83c2bd2f1c1",
+      "name": "Agregar ID y fecha proc N8N",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SIz17ktDmDxRT1lA",
+          "name": "Google Sheets account 3_v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "spreadsheet",
+        "title": "=n8n - {{ $('ID_Ejec y Fecha_Ret').item.json.Fecha_Ret }} - ID {{ $('ID_Ejec y Fecha_Ret').item.json.ID_Ejec_Act }}",
+        "sheetsUi": {
+          "sheetValues": [
+            {
+              "title": "=Registros - {{ $('ID_Ejec y Fecha_Ret').item.json.Fecha_Ret }} - ID {{ $('ID_Ejec y Fecha_Ret').item.json.ID_Ejec_Act }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1664,
+        -992
+      ],
+      "id": "d3738447-4708-4cb3-8e6e-ee89eb41ea54",
+      "name": "Crear hoja diaria",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SIz17ktDmDxRT1lA",
+          "name": "Google Sheets account 3_v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Crear hoja diaria').item.json.spreadsheetId }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Crear hoja diaria').item.json.sheets[0].properties.sheetId }}",
+          "mode": "id"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID_rta",
+              "displayName": "ID_rta",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Fecha_ejec",
+              "displayName": "Fecha_ejec",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sucursal",
+              "displayName": "Sucursal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Fecha",
+              "displayName": "Fecha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Responsable",
+              "displayName": "Responsable",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Com_gral",
+              "displayName": "Com_gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Org_Mix",
+              "displayName": "Org_Mix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Org_Veg",
+              "displayName": "Org_Veg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Hueso",
+              "displayName": "Hueso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sebo",
+              "displayName": "Sebo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Puch",
+              "displayName": "Puch",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Carton",
+              "displayName": "Carton",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Plast",
+              "displayName": "Plast",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Inorg",
+              "displayName": "Inorg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "PDA",
+              "displayName": "PDA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Otros_mat",
+              "displayName": "Otros_mat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_ani",
+              "displayName": "Desc_ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_gral",
+              "displayName": "Desc_gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Com_desc",
+              "displayName": "Com_desc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Ingreso_extra",
+              "displayName": "Ingreso_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Mat_Extra",
+              "displayName": "Mat_Extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Com_extra",
+              "displayName": "Com_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Foto_extra",
+              "displayName": "Foto_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SubT_coc",
+              "displayName": "SubT_coc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SubT_carn",
+              "displayName": "SubT_carn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SubT_recic",
+              "displayName": "SubT_recic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SubT_otros",
+              "displayName": "SubT_otros",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Subt_desc",
+              "displayName": "Subt_desc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TOT_RSU_ConD",
+              "displayName": "TOT_RSU_ConD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TOT_RSU_SinD",
+              "displayName": "TOT_RSU_SinD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc%_Ani",
+              "displayName": "Desc%_Ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc%_Gral",
+              "displayName": "Desc%_Gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc%_Tot",
+              "displayName": "Desc%_Tot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa%_Ani",
+              "displayName": "Tasa%_Ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa%_Gral",
+              "displayName": "Tasa%_Gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa%Tot",
+              "displayName": "Tasa%Tot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_RSU_300",
+              "displayName": "Alert_RSU_300",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_DES_50",
+              "displayName": "Alert_DES_50",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_DES%25",
+              "displayName": "Alert_DES%25",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_PDA_0",
+              "displayName": "Alert_PDA_0",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_PDA_20",
+              "displayName": "Alert_PDA_20",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_Extra_Foto",
+              "displayName": "Alert_Extra_Foto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_Porc_Ani",
+              "displayName": "Desc_Porc_Ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_Porc_Gral",
+              "displayName": "Desc_Porc_Gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_Porc_Tot",
+              "displayName": "Desc_Porc_Tot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa_Porc_Ani",
+              "displayName": "Tasa_Porc_Ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa_Porc_Gral",
+              "displayName": "Tasa_Porc_Gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa_Porc_Tot",
+              "displayName": "Tasa_Porc_Tot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2064,
+        -784
+      ],
+      "id": "38650a56-ba9b-4718-8fcf-66708288ac46",
+      "name": "Crear Columnas",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SIz17ktDmDxRT1lA",
+          "name": "Google Sheets account 3_v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Split the comma-separated string from $json.rows\nconst headersArray = $json.Columns.split(',');\n\n// Create an object where each key is a header (trimmed) and its value is the header text\nconst headersObject = {};\nheadersArray.forEach(header => {\n  const trimmedHeader = header.trim();\n  headersObject[trimmedHeader] = trimmedHeader;\n});\n\n// Return the object so that each header becomes a column in the first row of your sheet\nreturn [\n  {\n    json: headersObject\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2224,
+        -784
+      ],
+      "id": "83a88462-065b-48a9-9d6f-6b5ced090fdb",
+      "name": "Definir Columnas"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Crear hoja diaria').item.json.spreadsheetId }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Crear hoja diaria').item.json.sheets[0].properties.sheetId }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1904,
+        -784
+      ],
+      "id": "a0332fe3-3241-4f39-926c-b49c45ad7955",
+      "name": "Eliminar fila de más",
+      "executeOnce": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SIz17ktDmDxRT1lA",
+          "name": "Google Sheets account 3_v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "['Marca temporal']",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1088,
+        -768
+      ],
+      "id": "6f283824-66c7-4abf-a001-cf9a2fe387d1",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Crear hoja diaria').item.json.spreadsheetId }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "={{ $('Crear hoja diaria').item.json.sheets[0].properties.sheetId }}",
+          "mode": "id"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Sucursal": "={{ $json['1.1. Sucursal'] }}",
+            "Fecha": "={{ $json['1.2. Fecha del retiro'] }}",
+            "Responsable": "={{ $json['1.3. Responsable del ingreso / pesaje'] }}",
+            "Org_Mix": "={{ $json['2.1. Orgánico mixto (kg)'] }}",
+            "Org_Veg": "={{ $json['2.2. Orgánico vegetal (kg)'] }}",
+            "Hueso": "={{ $json['2.3. Hueso (kg)'] }}",
+            "Sebo": "={{ $json['2.4. Sebo (kg)'] }}",
+            "Carton": "={{ $json['2.6. Cartón (kg)'] }}",
+            "PDA": "={{ $json['2.9. PDA (kg)'] }}",
+            "Otros_mat": "={{ $json['3.1. Indicar el tipo de material (Ej. Madera / Papel / Libros / Mobiliario / etc)'] }}",
+            "SubT_carn": "={{ $json.SubT_carn }}",
+            "Ingreso_extra": "={{ $json['2.13. Hubo un ingreso extraordinario?'] }}",
+            "Com_gral": "={{ $json['1.4. Comentario general del retiro (Hace falta informar algo que pueda mejorar?)'] }}",
+            "Puch": "={{ $json['2.5. Puchero (kg)'] }}",
+            "Plast": "={{ $json['2.7. Plástico (kg)'] }}",
+            "Inorg": "={{ $json['2.8. Inorgánicos (vidrio, metales, tetra) (kg)'] }}",
+            "Desc_ani": "={{ $json['2.10. Descarte animal (kg)'] }}",
+            "Desc_gral": "={{ $json['2.11. Descarte general (kg)'] }}",
+            "Com_desc": "={{ $json['2.12. Comentario/detalle sobre el descarte'] }}",
+            "Mat_Extra": "={{ $json['3.1. Indicar el tipo de material (Ej. Madera / Papel / Libros / Mobiliario / etc)'] }}",
+            "Com_extra": "={{ $json['3.3. Comentario / descripción / detalles'] }}",
+            "Foto_extra": "={{ $json['3.4. Subir una foto del material extraordinario'] }}",
+            "Fecha_ejec": "={{ $('CODE_1 - FECHA e ID').item.json.Proc_n8n }}",
+            "SubT_coc": "={{ $json.SubT_coc }}",
+            "SubT_recic": "={{ $json.SubT_recic }}",
+            "SubT_otros": "={{ $json['3.2. Indicar el peso del material extra (kg)'] }}",
+            "Subt_desc": "={{ $json.Subt_Desc }}",
+            "TOT_RSU_ConD": "={{ $json.TOT_RSU_ConD }}",
+            "TOT_RSU_SinD": "={{ $json.TOT_RSU_SinD }}",
+            "Desc_Porc_Ani": "={{ $json.Desc_Porc_Ani }}",
+            "Desc_Porc_Gral": "={{ $json.Desc_Porc_Gral }}",
+            "Desc_Porc_Tot": "={{ $json.Desc_Porc_Tot }}",
+            "Tasa_Porc_Ani": "={{ $json.Tasa_Porc_Ani }}",
+            "Tasa_Porc_Gral": "={{ $json.Tasa_Porc_Gral }}",
+            "Tasa_Porc_Tot": "={{ $json.Tasa_Porc_Tot }}",
+            "Alert_RSU_300": "={{ $json.Alert_RSU_300 }}",
+            "Alert_DES_50": "={{ $json.Alert_DES_50 }}",
+            "Alert_DES%25": "={{ $json.Alert_DES_25 }}",
+            "Alert_PDA_0": "={{ $json.Alert_PDA_0 }}",
+            "Alert_PDA_20": "={{ $json.Alert_PDA_20 }}",
+            "Alert_Extra_Foto": "={{ $json.Alert_Extra_Foto }}",
+            "ID_REG_HIST": "={{ $json.ID_REG_HIST }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID_REG_HIST",
+              "displayName": "ID_REG_HIST",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Fecha_ejec",
+              "displayName": "Fecha_ejec",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Sucursal",
+              "displayName": "Sucursal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha",
+              "displayName": "Fecha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Responsable",
+              "displayName": "Responsable",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Com_gral",
+              "displayName": "Com_gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Org_Mix",
+              "displayName": "Org_Mix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Org_Veg",
+              "displayName": "Org_Veg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hueso",
+              "displayName": "Hueso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sebo",
+              "displayName": "Sebo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Puch",
+              "displayName": "Puch",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Carton",
+              "displayName": "Carton",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Plast",
+              "displayName": "Plast",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Inorg",
+              "displayName": "Inorg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "PDA",
+              "displayName": "PDA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Otros_mat",
+              "displayName": "Otros_mat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Desc_ani",
+              "displayName": "Desc_ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_gral",
+              "displayName": "Desc_gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Com_desc",
+              "displayName": "Com_desc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Ingreso_extra",
+              "displayName": "Ingreso_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Mat_Extra",
+              "displayName": "Mat_Extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Com_extra",
+              "displayName": "Com_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Foto_extra",
+              "displayName": "Foto_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SubT_coc",
+              "displayName": "SubT_coc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SubT_carn",
+              "displayName": "SubT_carn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SubT_recic",
+              "displayName": "SubT_recic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "SubT_otros",
+              "displayName": "SubT_otros",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Subt_desc",
+              "displayName": "Subt_desc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TOT_RSU_ConD",
+              "displayName": "TOT_RSU_ConD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "TOT_RSU_SinD",
+              "displayName": "TOT_RSU_SinD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_Porc_Ani",
+              "displayName": "Desc_Porc_Ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_Porc_Gral",
+              "displayName": "Desc_Porc_Gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Desc_Porc_Tot",
+              "displayName": "Desc_Porc_Tot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa_Porc_Ani",
+              "displayName": "Tasa_Porc_Ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa_Porc_Gral",
+              "displayName": "Tasa_Porc_Gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tasa_Porc_Tot",
+              "displayName": "Tasa_Porc_Tot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_RSU_300",
+              "displayName": "Alert_RSU_300",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_DES_50",
+              "displayName": "Alert_DES_50",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_DES%25",
+              "displayName": "Alert_DES%25",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_PDA_0",
+              "displayName": "Alert_PDA_0",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_PDA_20",
+              "displayName": "Alert_PDA_20",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Alert_Extra_Foto",
+              "displayName": "Alert_Extra_Foto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2288,
+        -528
+      ],
+      "id": "2a239cfb-cf47-475e-8c1c-2f62536cc69e",
+      "name": "Actualizar planilla diaria",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SIz17ktDmDxRT1lA",
+          "name": "Google Sheets account 3_v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "reset": false
+        }
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -2064,
+        -576
+      ],
+      "id": "1e01ecea-3487-4d52-a1dc-4384e8bbd82d",
+      "name": "Loop Over Items",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos el item actual que entra al nodo\nconst item = $items()[0];\n\n// --- 1. Definición y Conversión de la Paleta de Colores ---\n// (Esta parte no cambia)\nconst hexColors = {\n  orgMix: '#b6d7a8', orgVeg: '#a5cc91', pda: '#006400',\n  hueso: '#ea9999', sebo: '#db6a69', puchero: '#c62319',\n  carton: '#f6cca1', plastico: '#719ee7', inorg: '#c07d9f',\n  descAnim: '#cccccc', descGral: '#b7b7b7'\n};\nfunction hexToRgba(hex, alpha = 1) {\n  const r = parseInt(hex.slice(1, 3), 16);\n  const g = parseInt(hex.slice(3, 5), 16);\n  const b = parseInt(hex.slice(5, 7), 16);\n  return `rgba(${r}, ${g}, ${b}, ${alpha})`;\n}\nconst rgbaColors = {};\nfor (const key in hexColors) {\n  rgbaColors[key] = hexToRgba(hexColors[key]);\n}\n\n// --- 2. Creación de la Configuración del Gráfico ---\n// (Esta parte no cambia)\nconst get = (columnName) => parseFloat(item.json[columnName]) || 0;\n\nconst chartConfig = {\n  type: 'bar',\n  data: {\n    labels: [\"Cocina\", \"Carnicería\", \"General\", \"Descarte\"],\n    datasets: [\n        { label: \"Mixto\", data: [get('Org_Mix'), 0, 0, 0], backgroundColor: rgbaColors.orgMix },\n        { label: \"Vegetal\", data: [get('Org_Veg'), 0, 0, 0], backgroundColor: rgbaColors.orgVeg },\n        { label: \"PDA\", data: [get('PDA'), 0, 0, 0], backgroundColor: rgbaColors.pda },\n        { label: \"Hueso\", data: [0, get('Hueso'), 0, 0], backgroundColor: rgbaColors.hueso },\n        { label: \"Sebo\", data: [0, get('Sebo'), 0, 0], backgroundColor: rgbaColors.sebo },\n        { label: \"Puchero\", data: [0, get('Puch'), 0, 0], backgroundColor: rgbaColors.puchero },\n        { label: \"Carton\", data: [0, 0, get('Carton'), 0], backgroundColor: rgbaColors.carton },\n        { label: \"Plastico\", data: [0, 0, get('Plast'), 0], backgroundColor: rgbaColors.plastico },\n        { label: \"Inorg\", data: [0, 0, get('Inorg'), 0], backgroundColor: rgbaColors.inorg },\n        { label: \"Desc. carn\", data: [0, 0, 0, get('Desc_ani')], backgroundColor: rgbaColors.descAnim },\n        { label: \"Desc. gral\", data: [0, 0, 0, get('Desc_gral')], backgroundColor: rgbaColors.descGral }\n    ]\n  },\n  options: {\n    title: { display: false },\n    legend: { display: false },\n    scales: { \n      xAxes: [{ stacked: true, barPercentage: 0.5, ticks: { font: { size: 11, weight: 'bold' } } }], \n      yAxes: [{ stacked: true, ticks: { stepSize: 10 } }] \n    }\n  }\n};\n\n// --- 3. MODIFICACIÓN CLAVE: Construir el cuerpo de la petición ---\n// En lugar de añadir propiedades sueltas, creamos un único objeto 'body'\n// que enviaremos directamente a QuickChart.\nconst postBody = {\n  chart: chartConfig,           // La configuración del gráfico va anidada\n  width: 274,                   // El ancho va fuera\n  height: 162,                   // El alto va fuera\n  backgroundColor: '#ffffff',   // El color de fondo va fuera\n  format: 'jpeg'                // El formato va fuera\n};\n\n// Devolvemos el objeto 'postBody' dentro del item.\nitem.json.body = postBody;\nreturn [item];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1824,
+        -496
+      ],
+      "id": "92afc388-25f5-4b23-8192-cad9203a92dc",
+      "name": "Preparar_grafico"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://quickchart.io/chart",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1664,
+        -496
+      ],
+      "id": "8636d241-6750-492f-b73e-53d4e3ed89d8",
+      "name": "Quick Chart"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "cac33833-7cc0-4cf2-9b5a-eac723130aee",
+              "name": "Columns",
+              "value": "=ID_REG_HIST, Fecha_ejec, Sucursal, Fecha, Responsable, Com_gral, Org_Mix, Org_Veg, Hueso, Sebo, Puch, Carton, Plast, Inorg, PDA, Otros_mat, Desc_ani, Desc_gral, Com_desc, Ingreso_extra, Mat_Extra, Com_extra, Foto_extra, SubT_coc, SubT_carn, SubT_recic, SubT_otros, Subt_desc, TOT_RSU_ConD, TOT_RSU_SinD, Desc_Porc_Ani, Desc_Porc_Gral, Desc_Porc_Tot, Tasa_Porc_Ani, Tasa_Porc_Gral, Tasa_Porc_Tot, Alert_RSU_300, Alert_DES_50, Alert_DES%25, Alert_PDA_0, Alert_PDA_20, Alert_Extra_Foto",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2384,
+        -784
+      ],
+      "id": "efd86a03-3b02-4cb1-8cff-c7cf5ecbba10",
+      "name": "SETEAR COLUMNAS"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1eacc65-aa76-4c62-b8c7-593d72a5452c",
+              "leftValue": "Ingreso_extra",
+              "rightValue": "SI",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2144,
+        768
+      ],
+      "id": "04b0de5a-d918-4717-abcf-c19cc32e55e9",
+      "name": "Hay ingreso extra?"
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1XUnW-gOKuz7E56RmddbBXMXBzgA3TdRg6F3hf_3FrIc",
+          "mode": "list",
+          "cachedResultName": "Template_Slide FBR-Multi",
+          "cachedResultUrl": "https://docs.google.com/presentation/d/1XUnW-gOKuz7E56RmddbBXMXBzgA3TdRg6F3hf_3FrIc/edit?usp=drivesdk"
+        },
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1968,
+        752
+      ],
+      "id": "736fb7be-0dae-4f5b-92c5-ba0f7878dc95",
+      "name": "COPIAR_TEMPL_2",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "replaceText",
+        "presentationId": "={{ $json.id }}",
+        "textUi": {
+          "textValues": [
+            {
+              "text": "Nombre_sucursal",
+              "replaceText": "={{ $('Loop Over Items').item.json.Sucursal }}"
+            },
+            {
+              "text": "Fecha_retiro",
+              "replaceText": "={{ $('Loop Over Items').item.json.Fecha }}"
+            },
+            {
+              "text": "“TOT_COND”",
+              "replaceText": "={{String($('Loop Over Items').item.json.TOTAL_ConD) }}"
+            },
+            {
+              "text": "“TASA_TOT”",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Tasa_gral) }}"
+            },
+            {
+              "text": "Comentario general: -",
+              "replaceText": "=- {{ String($('Loop Over Items').item.json.Come_gral) }}"
+            },
+            {
+              "text": "XMIX",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Org_Mix) }}"
+            },
+            {
+              "text": "XVEG",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Org_Veg) }}"
+            },
+            {
+              "text": "XPDA",
+              "replaceText": "={{ String($('Loop Over Items').item.json.PDA) }}"
+            },
+            {
+              "text": "XCAR",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Carton) }}"
+            },
+            {
+              "text": "XPLA",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Plastico) }}"
+            },
+            {
+              "text": "XINO",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Inorganicos) }}"
+            },
+            {
+              "text": "=XHUE",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Hueso) }}"
+            },
+            {
+              "text": "=XSEB",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Sebo) }}"
+            },
+            {
+              "text": "XPUC",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Puchero) }}"
+            },
+            {
+              "text": "X_DC",
+              "replaceText": "={{ String($('Loop Over Items').item.json['Desc. Animal']) }}"
+            },
+            {
+              "text": "X_DG",
+              "replaceText": "={{ String($('Loop Over Items').item.json['Desc. gral']) }}"
+            },
+            {
+              "text": "XCOC",
+              "replaceText": "={{ String($('Loop Over Items').item.json.SubT_org) }}"
+            },
+            {
+              "text": "XGRA",
+              "replaceText": "={{ String($('Loop Over Items').item.json.SubT_Recic) }}"
+            },
+            {
+              "text": "X_TC",
+              "replaceText": "={{ String($('Loop Over Items').item.json.SubT_carn) }}"
+            },
+            {
+              "text": "X_DT",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Subt_Desc) }}"
+            },
+            {
+              "text": "Fecha_Hoy",
+              "replaceText": "={{ $('Schedule Trigger').item.json['Day of month'] }} / {{ $('Schedule Trigger').item.json.Month }} / {{ $('Schedule Trigger').item.json.Year }}"
+            },
+            {
+              "text": "LINK_GRAF",
+              "replaceText": "={{ $('Grafico Sucursales en Drive').item.json.webViewLink }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSlides",
+      "typeVersion": 2,
+      "position": [
+        -1824,
+        752
+      ],
+      "id": "e9cedc1c-8c3a-4943-866d-8cd6342fafc9",
+      "name": "Editar Template_2",
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "kJAzBBkTRJoxHAi1",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.presentationId }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf",
+              "drawingsToFormat": "application/pdf",
+              "slidesToFormat": "application/pdf",
+              "sheetsToFormat": "application/pdf"
+            }
+          },
+          "fileName": "=Reporte_{{ $('Loop Over Items').item.json.Sucursal }}_v0"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1632,
+        752
+      ],
+      "id": "edfa9ffe-7497-42a2-8053-1b80c431af15",
+      "name": "Exportar Reporte_2",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.presentationId }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf",
+              "drawingsToFormat": "application/pdf",
+              "slidesToFormat": "application/pdf",
+              "sheetsToFormat": "application/pdf"
+            }
+          },
+          "fileName": "=Reporte_{{ $('Loop Over Items').item.json.Sucursal }}_"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1280,
+        -304
+      ],
+      "id": "38038219-2a99-48bf-a72d-4f94c3850e71",
+      "name": "Exportar Reporte_1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1616,
+        912
+      ],
+      "id": "1a2b60f4-0cb6-4625-bde6-0ec2da5c8316",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QE7Q2AYxv5C8A4gBQCEVbTpFxxLcePGERQr5fe6s7Xc",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1723803459,
+          "mode": "list",
+          "cachedResultName": "Historial Ejecucion",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QE7Q2AYxv5C8A4gBQCEVbTpFxxLcePGERQr5fe6s7Xc/edit#gid=1723803459"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2176,
+        -992
+      ],
+      "id": "7c4214e2-7fa2-45d1-aa99-83ca34676c13",
+      "name": "LEER Hist_ejec",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "SIz17ktDmDxRT1lA",
+          "name": "Google Sheets account 3_v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"ID_Ejec_Act\": \"{{ Math.max(...$items().map(item => item.json.ID_Ejec)) + 1 }}\",\n  \"ID_REG_HIST\": \"{{ $items().reduce((sum, item) => sum + item.json[\"Cantidad de registros\"], 0) }}\",\n\"Fecha_Ret\": \"{{ DateTime.fromISO($('Schedule Trigger').item.json.timestamp).minus({ days: 1 }).toFormat('dd/MM') }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2016,
+        -992
+      ],
+      "id": "8cbab5e8-5625-4986-b605-72074ab835ed",
+      "name": "ID_Ejec y Fecha_Ret",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "=Reportes de retiros del día {{ $json.Fecha_Ret }} - ID {{ $json.ID_Ejec_Act }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1Iuj-5Zu7_jq6IDmpbmUf7IOY_e-Qv9MZ",
+          "mode": "list",
+          "cachedResultName": "3. Registro diario Multi (público)",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1Iuj-5Zu7_jq6IDmpbmUf7IOY_e-Qv9MZ"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1840,
+        -992
+      ],
+      "id": "eaae1480-f8af-4c9d-bb4f-308f774ef3b3",
+      "name": "CARPETA DIARIA (ID y Fecha)",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos todos los items (filas) que llegan al nodo\nconst items = $input.all();\n\n// --- ¡NUEVO! OBTENER EL ID HISTÓRICO INICIAL ---\n// Buscamos el valor del ID máximo de la ejecución anterior en el nodo que nos indiques.\n// Reemplaza 'NOMBRE_DEL_NODO_CON_EL_ID' por el nombre real de tu nodo.\n// El '|| 0' es un seguro: si no encuentra el valor, empieza en 0.\nlet baseIdHist = $('ID_Ejec y Fecha_Ret').first().json.ID_REG_HIST-2 || 0;\n\n// --- OBTENER Y FORMATEAR LA FECHA ---\nconst today = new Date();\nconst day = String(today.getDate()).padStart(2, '0');\nconst month = String(today.getMonth() + 1).padStart(2, '0');\nconst formattedDate = `${day}/${month}`;\n\n// 1. Encontrar el ID máximo para 'ID_Rtas' (esta lógica no cambia)\nlet maxIdRtas = 0;\nfor (const item of items) {\n  const currentId = parseInt(item.json.ID_Rtas, 10);\n  if (!isNaN(currentId) && currentId > maxIdRtas) {\n    maxIdRtas = currentId;\n  }\n}\n\n// 2. Recorrer los items para procesarlos.\nitems.forEach(item => {\n  // --- ¡LÓGICA CORREGIDA PARA ID_REG_HIST! ---\n  // Asignamos el valor base actual y LUEGO lo incrementamos para la siguiente fila.\n  item.json.ID_REG_HIST = baseIdHist;\n  baseIdHist++;\n\n  // Si la columna 'ID_Rtas' está vacía...\n  if (item.json.ID_Rtas === null || item.json.ID_Rtas === undefined || item.json.ID_Rtas === '') {\n    // a. Incrementamos y asignamos el nuevo ID de respuesta.\n    maxIdRtas++;\n    item.json.ID_Rtas = maxIdRtas;\n\n    // b. Asignamos la fecha formateada.\n    item.json.Proc_n8n = formattedDate;\n  }\n});\n\n// 3. Devolvemos todos los items, ahora con los datos correctos.\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1504,
+        -672
+      ],
+      "id": "efa9a90f-4092-4d0f-bdf8-352c2e354579",
+      "name": "CODE_1 - FECHA e ID"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Itera sobre cada fila (ítem) que llega al nodo\nfor (const item of items) {\n  \n  // Función auxiliar para obtener un número de una columna de forma segura.\n  // Si el valor no existe o no es un número, lo tratará como 0.\n  const get = (columnName) => parseFloat(item.json[columnName]) || 0;\n\n  // --- 1. CÁLCULO DE SUBTOTALES ---\n  const SubT_coc = get(\"2.1. Orgánico mixto (kg)\") + get(\"2.2. Orgánico vegetal (kg)\") + get(\"2.9. PDA (kg)\");\n  const SubT_carn = get(\"2.3. Hueso (kg)\") + get(\"2.4. Sebo (kg)\") + get(\"2.5. Puchero (kg)\");\n  const SubT_recic = get(\"2.6. Cartón (kg)\") + get(\"2.7. Plástico (kg)\") + get(\"2.8. Inorgánicos (vidrio, metales, tetra) (kg)\");\n  const SubT_otros = get(\"3.2. Indicar el peso del material extra (kg)\");  \n  const Subt_Desc = get(\"2.10. Descarte animal (kg)\") + get(\"2.11. Descarte general (kg)\");\n\n  // --- 2. CÁLCULO DE TOTALES ---\n  // Se usan las variables de subtotales calculadas justo antes\n  const TOT_RSU_ConD = SubT_coc + SubT_carn + SubT_recic + get(\"3.2. Indicar el peso del material extra (kg)\") + Subt_Desc;\n  const TOT_RSU_SinD = SubT_coc + SubT_carn + SubT_recic + get(\"3.2. Indicar el peso del material extra (kg)\");\n\n  // --- 4. AÑADIR LAS NUEVAS VARIABLES A LA FILA ACTUAL ---\n  item.json['SubT_coc'] = SubT_coc;\n  item.json['SubT_carn'] = SubT_carn;\n  item.json['SubT_recic'] = SubT_recic;\n  item.json['Subt_Desc'] = Subt_Desc;\n  item.json['TOT_RSU_ConD'] = TOT_RSU_ConD;\n  item.json['TOT_RSU_SinD'] = TOT_RSU_SinD;\n}\n\n// Devuelve todos los ítems modificados para que el flujo de trabajo continúe\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1568,
+        -800
+      ],
+      "id": "4d6008df-4b69-4f70-bde4-b840d7f13df5",
+      "name": "CODE_2 - DAX"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Itera sobre cada fila (item) que recibe el nodo.\nfor (const item of $input.all()) {\n\n  // --- 1. Extrae los valores de forma segura (si no existen, usa 0) ---\n  const desc_ani = item.json['2.10. Descarte animal (kg)'] || 0;\n  const desc_gral = item.json['2.11. Descarte general (kg)'] || 0;\n  const SubT_carn = item.json.SubT_carn || 0;\n  const SubT_coc = item.json.SubT_coc || 0;\n  const SubT_recic = item.json.SubT_recic || 0;\n  const Subt_desc = item.json.Subt_Desc || 0;\n  const TOT_RSU_ConD = item.json.TOT_RSU_ConD || 0;\n  const SubT_otros = item.json['2.9. PDA (kg)'] || 0;\n\n  // --- 2. Realiza los cálculos ---\n  const denominador_ani = desc_ani + SubT_carn;\n  let Desc_Porc_Ani = denominador_ani === 0 ? 0 : desc_ani / denominador_ani;\n\n  const denominador_gral = desc_gral + SubT_coc + SubT_recic + SubT_otros;\n  let Desc_Porc_Gral = denominador_gral === 0 ? 0 : desc_gral / denominador_gral;\n  \n  let Desc_Porc_Tot = TOT_RSU_ConD === 0 ? 0 : Subt_desc / TOT_RSU_ConD;\n\n  let Tasa_Porc_Ani = 1 - Desc_Porc_Ani;\n  let Tasa_Porc_Gral = 1 - Desc_Porc_Gral;\n  let Tasa_Porc_Tot = 1 - Desc_Porc_Tot;\n\n  // --- 3. Convierte a escala 0-100 y redondea al entero más cercano ---\n  // El método Math.round() asegura que no haya decimales.\n  item.json.Desc_Porc_Ani = Math.round(Desc_Porc_Ani * 100);\n  item.json.Desc_Porc_Gral = Math.round(Desc_Porc_Gral * 100);\n  item.json.Desc_Porc_Tot = Math.round(Desc_Porc_Tot * 100);\n  item.json.Tasa_Porc_Ani = Math.round(Tasa_Porc_Ani * 100);\n  item.json.Tasa_Porc_Gral = Math.round(Tasa_Porc_Gral * 100);\n  item.json.Tasa_Porc_Tot = Math.round(Tasa_Porc_Tot * 100);\n}\n\n// --- 4. Devuelve la tabla completa con las nuevas columnas ---\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1424,
+        -800
+      ],
+      "id": "5c80655b-a502-48c8-8334-ceac6d0f3df1",
+      "name": "CODE_3 - Tasas"
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.spreadsheetId }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('CARPETA DIARIA (ID y Fecha)').item.json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1504,
+        -992
+      ],
+      "id": "d087efd7-c41d-4b34-a31a-aa4328f3e38b",
+      "name": "Move file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Itera sobre cada fila (item) que recibe el nodo.\nfor (const item of $input.all()) {\n\n  // --- 1. Extrae los valores necesarios de la fila actual ---\n  // Se usa '|| 0' o '|| \"\"' para asignar un valor por defecto si el campo no existe.\n  const tot_rsu_sin_d = item.json.TOT_RSU_SinD || 0;\n  const subt_desc = item.json.Subt_Desc || 0;\n  const desc_porc_tot = item.json.Desc_Porc_Tot || 0;\n  const pda = item.json['9. PDA'] || 0;\n  const foto_material = item.json['Foto del material.'] || \"\";\n\n  // --- 2. Evalúa cada condición y crea la variable de alerta ---\n  // La estructura (condicion ? 1 : 0) devuelve 1 si es verdadero, y 0 si es falso.\n  \n  // Se activa cuando \"TOT_RSU_SinD\" es igual o mayor a 300.\n  item.json.Alert_RSU_300 = tot_rsu_sin_d >= 300 ? 1 : 0;\n\n  // Se activa cuando \"Subt_desc\" es igual o mayor a 50.\n  item.json.Alert_DES_50 = subt_desc >= 50 ? 1 : 0;\n  \n  // Se activa cuando \"Desc_Porc_Tot\" es igual o mayor a 0.25.\n  item.json.Alert_DES_25 = desc_porc_tot >= 25 ? 1 : 0;\n  \n  // Se activa cuando \"PDA\" es 0.\n  item.json.Alert_PDA_0 = pda === 0 ? 1 : 0;\n  \n  // Se activa cuando \"PDA\" es igual o mayor a 20.\n  item.json.Alert_PDA_20 = pda >= 20 ? 1 : 0;\n  \n  // Se activa cuando \"Foto del material.\" no está vacio.\n  item.json.Alert_Extra_Foto = foto_material.trim() !== '' ? 1 : 0;\n}\n\n// --- 3. Devuelve la tabla completa con las nuevas columnas de alerta ---\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2016,
+        464
+      ],
+      "id": "e465e44b-1c71-4b6c-9f59-f7ef951c1b7c",
+      "name": "CODE 5 - Mails por sucursal",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1808,
+        464
+      ],
+      "id": "1430f22e-47bb-482b-aa5a-93bc1363c344",
+      "name": "CODE 6 - KPIs",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "height": 208,
+        "width": 448
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2064,
+        432
+      ],
+      "typeVersion": 1,
+      "id": "7cad2d6b-07b7-4d0c-9a50-9ab27c8d4320",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Accedemos a los datos que llegan al nodo\nconst items = $input.all();\n\n// Iteramos sobre cada item (fila de datos) que llega\nfor (const item of items) {\n  // Obtenemos los valores de las variables de alerta del item actual\n  const alertDes50 =   $('Loop Over Items').first().json.Alert_DES_50;\n  const alertDes25 =   $('Loop Over Items').first().json['Alert_DES%25'];\n\n\n  // Variable para almacenar el mensaje final\n  let mensajeAlerta = '';\n\n  // Aplicamos la lógica condicional que necesitas\n  if (alertDes50 == 1 && alertDes25 == 1) {\n    mensajeAlerta = \"Vinieron más de 50kg y más de 25% de rechazo, revisar la separación.\";\n  } else if (alertDes50 == 1) {\n    mensajeAlerta = \"Vinieron más de 50kg de descarte, revisar la separación.\";\n  } else if (alertDes25 == 1) {\n    mensajeAlerta = \"Vino mas de 25% de rechazo, revisar la separación.\";\n  } else {\n    mensajeAlerta = \"Muy bien hecha la separación en origen, tu compromiso es clave para transformar los residuos en recursos.\";\n  }\n  \n  // Agregamos la nueva variable 'ALERTA_DESC' al item actual\n  item.json.ALERTA_DESC = mensajeAlerta;\n}\n\n// Devolvemos los items con la nueva variable ya agregada\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1232,
+        -496
+      ],
+      "id": "cfecb9cb-d5d3-4abf-9738-b23749288e0c",
+      "name": "ALERT_DESC"
+    },
+    {
+      "parameters": {
+        "url": "=https://slides.googleapis.com/v1/presentations/{{ $('Editar Template_Suc').item.json.presentationId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSlidesOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1808,
+        -304
+      ],
+      "id": "48ec0240-2c1b-46f9-bfc7-678ad9147f63",
+      "name": "Identificar Slide",
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "kJAzBBkTRJoxHAi1",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const key = \"GRAFICO_QUICKCHART\";\n\nconst pageElements = $input\n  .all()\n  .flatMap(item => item.json.slides)\n  .flatMap(slide => slide.pageElements.filter(el => el.image && el.description === key));\n\nconst objectIds = pageElements.map(el => ({ objectId: el.objectId }));\n\nreturn objectIds"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1632,
+        -304
+      ],
+      "id": "bd040551-075a-41b9-9c39-7851158af7de",
+      "name": "PREPARAR REMPLAZO"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://slides.googleapis.com/v1/presentations/{{ $('Editar Template_Suc').item.json.presentationId }}:batchUpdate",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSlidesOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"requests\": [\n    {\n        \"replaceImage\": {\n          \"imageObjectId\": \"{{ $json.objectId }}\",\n          \"url\": \"{{ $('Grafico Sucursales en Drive').item.json.webContentLink }}\",\n          \"imageReplaceMethod\": \"CENTER_CROP\"\n        }\n    },\n    {\n      \"updatePageElementAltText\": {\n        \"objectId\": \"{{ $json.objectId }}\",\n        \"description\": \"GRAFICO_QUICKCHART\"\n      }\n    }\n  ]\n}  \n   ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1456,
+        -304
+      ],
+      "id": "c57fbf93-a8a3-4aeb-9800-e57fc7b9db04",
+      "name": "REMPLAZAR GRAFICO",
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "kJAzBBkTRJoxHAi1",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "=Reporte diario Supermercado Multiexpress - Retiros del día {{ $('ID_Ejec y Fecha_Ret').item.json.Fecha_Ret }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('CARPETA DIARIA (ID y Fecha)').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1312,
+        -992
+      ],
+      "id": "4613d700-39c6-4d92-89ba-4cb1682cb758",
+      "name": "CARPETA para COMPARTIR",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{ $('ID_Ejec y Fecha_Ret').item.json.Fecha_Ret }} - {{ $('Loop Over Items').item.json.Sucursal }} - Reporte diario del Plan de geston de residuos",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('CARPETA para COMPARTIR').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1136,
+        -304
+      ],
+      "id": "a7ee2d76-9452-4f01-83b6-7257eb47aca5",
+      "name": "Upload file1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "santiago@krbon.me, administracion@multiservisrl.com.ar, bancoder3siduos@gmail.com",
+        "subject": "={{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }} - Reportes diarios del Plan de gestión de residuos ",
+        "emailType": "text",
+        "message": "=Hola, buen día.\n\nVan link a la carpeta con los reportes diarios de residuos del día {{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }}.\n\nhttps://drive.google.com/drive/folders/{{ $('CARPETA para COMPARTIR').first().json.id }}\n\nEl total de Residuos y tasa de efectividad fue de:\nTOTAL = {{$('TASAS DIARIAS').first().json.TOT_RSU_ConD_D}} kg - {{$('TASAS DIARIAS').first().json.Tasa_Porc_Tot_D}} %\nJapón = {{ $('ConsolidarDatosSucursales').first().json.TOT_RSU_1 }} kg - {{ $('ConsolidarDatosSucursales').first().json.TASA_TOT_1 }} %\nCordoba = {{ $('ConsolidarDatosSucursales').first().json.TOT_RSU_2 }} kg - {{ $('ConsolidarDatosSucursales').first().json.TASA_TOT_2 }} %\nCatamarca = {{ $('ConsolidarDatosSucursales').first().json.TOT_RSU_3 }} kg - {{ $('ConsolidarDatosSucursales').first().json.TASA_TOT_3 }} %\n\nQuedo a disposición, saludos\n\nSantiago",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -304,
+        -400
+      ],
+      "id": "9af61bfe-f47f-403d-b7d8-7a9b9f3737cb",
+      "name": "ENVIO DE REPORTE DIARIO",
+      "webhookId": "e8b0ca75-1fee-4d6f-a31e-c4b705dce68d",
+      "executeOnce": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "IIRaKUBpFauRmyBr",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos el item actual que entra al nodo\nconst item = $items()[0];\n\n// --- 1. Definición y Conversión de la Paleta de Colores ---\n// (Esta parte no cambia)\nconst hexColors = {\n  orgMix: '#b6d7a8', orgVeg: '#a5cc91', pda: '#006400',\n  hueso: '#ea9999', sebo: '#db6a69', puchero: '#c62319',\n  carton: '#f6cca1', plastico: '#719ee7', inorg: '#c07d9f',\n  descAnim: '#cccccc', descGral: '#b7b7b7'\n};\nfunction hexToRgba(hex, alpha = 1) {\n  const r = parseInt(hex.slice(1, 3), 16);\n  const g = parseInt(hex.slice(3, 5), 16);\n  const b = parseInt(hex.slice(5, 7), 16);\n  return `rgba(${r}, ${g}, ${b}, ${alpha})`;\n}\nconst rgbaColors = {};\nfor (const key in hexColors) {\n  rgbaColors[key] = hexToRgba(hexColors[key]);\n}\n\n// --- 2. Creación de la Configuración del Gráfico ---\nconst get = (columnName) => parseFloat(item.json[columnName]) || 0;\n\nconst chartConfig = {\n  type: 'bar',\n  data: {\n    labels: [\"Cocina\", \"Carnicería\", \"General\", \"Descarte\"],\n    // MODIFICADO: Se añade el sufijo \"_D\" a todas las llamadas 'get()'\n    datasets: [\n        { label: \"Mixto\", data: [get('Org_Mix_D'), 0, 0, 0], backgroundColor: rgbaColors.orgMix },\n        { label: \"Vegetal\", data: [get('Org_Veg_D'), 0, 0, 0], backgroundColor: rgbaColors.orgVeg },\n        { label: \"PDA\", data: [get('PDA_D'), 0, 0, 0], backgroundColor: rgbaColors.pda },\n        { label: \"Hueso\", data: [0, get('Hueso_D'), 0, 0], backgroundColor: rgbaColors.hueso },\n        { label: \"Sebo\", data: [0, get('Sebo_D'), 0, 0], backgroundColor: rgbaColors.sebo },\n        { label: \"Puchero\", data: [0, get('Puch_D'), 0, 0], backgroundColor: rgbaColors.puchero },\n        { label: \"Carton\", data: [0, 0, get('Carton_D'), 0], backgroundColor: rgbaColors.carton },\n        { label: \"Plastico\", data: [0, 0, get('Plast_D'), 0], backgroundColor: rgbaColors.plastico },\n        { label: \"Inorg\", data: [0, 0, get('Inorg_D'), 0], backgroundColor: rgbaColors.inorg },\n        { label: \"Desc. carn\", data: [0, 0, 0, get('Desc_ani_D')], backgroundColor: rgbaColors.descAnim },\n        { label: \"Desc. gral\", data: [0, 0, 0, get('Desc_gral_D')], backgroundColor: rgbaColors.descGral }\n    ]\n  },\n  options: {\n    title: { display: false },\n    legend: { display: false },\n    scales: { \n      xAxes: [{ stacked: true, barPercentage: 0.5, ticks: { font: { size: 11, weight: 'bold' } } }], \n      yAxes: [{ stacked: true, ticks: { stepSize: 10 } }] \n    }\n  }\n};\n\n// --- 3. Construir el cuerpo de la petición ---\nconst postBody = {\n  chart: chartConfig,           // La configuración del gráfico va anidada\n  width: 274,                   // El ancho va fuera\n  height: 162,                  // El alto va fuera\n  backgroundColor: '#ffffff',   // El color de fondo va fuera\n  format: 'jpeg'                // El formato va fuera\n};\n\n// Devolvemos el objeto 'postBody' dentro del item.\nitem.json.body = postBody;\nreturn [item];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1568,
+        -48
+      ],
+      "id": "3729ae19-3fc5-4074-aee0-548bdf23af0d",
+      "name": "Preparar_grafico2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://quickchart.io/chart",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.body }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1408,
+        -48
+      ],
+      "id": "5a309fa4-d133-4340-9e00-c1c01b7ae632",
+      "name": "Quick Chart2"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.presentationId }}",
+          "mode": "id"
+        },
+        "options": {
+          "googleFileConversion": {
+            "conversion": {
+              "docsToFormat": "application/pdf",
+              "drawingsToFormat": "application/pdf",
+              "slidesToFormat": "application/pdf",
+              "sheetsToFormat": "application/pdf"
+            }
+          },
+          "fileName": "=Reporte_{{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }}_"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -992,
+        144
+      ],
+      "id": "4f792c4d-5e6e-422d-95d7-2c49d1c78015",
+      "name": "Exportar Reporte_",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://slides.googleapis.com/v1/presentations/{{ $json.presentationId }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSlidesOAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1552,
+        144
+      ],
+      "id": "4ce715c4-bc9c-45a3-9e71-fca975c064fb",
+      "name": "Identificar Slide1",
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "kJAzBBkTRJoxHAi1",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const key = \"GRAFICO_QUICKCHART\";\n\nconst pageElements = $input\n  .all()\n  .flatMap(item => item.json.slides)\n  .flatMap(slide => slide.pageElements.filter(el => el.image && el.description === key));\n\nconst objectIds = pageElements.map(el => ({ objectId: el.objectId }));\n\nreturn objectIds"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1376,
+        144
+      ],
+      "id": "6afc781b-444d-48cc-8a62-dfddb0d3f5c5",
+      "name": "PREPARAR REMPLAZO1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://slides.googleapis.com/v1/presentations/{{ $('Editar Template__GENERAL').item.json.presentationId }}:batchUpdate",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleSlidesOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"requests\": [\n    {\n        \"replaceImage\": {\n          \"imageObjectId\": \"{{ $json.objectId }}\",\n          \"url\": \"{{ $('Grafico TOTAL_D en Drive').first().json.webContentLink }}\",\n          \"imageReplaceMethod\": \"CENTER_CROP\"\n        }\n    },\n    {\n      \"updatePageElementAltText\": {\n        \"objectId\": \"{{ $json.objectId }}\",\n        \"description\": \"GRAFICO_QUICKCHART\"\n      }\n    }\n  ]\n}  \n   ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1184,
+        144
+      ],
+      "id": "c33dd826-7891-474c-bfe5-a96f4145169d",
+      "name": "REMPLAZAR GRAFICO1",
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "kJAzBBkTRJoxHAi1",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }} -  Reporte diario del Plan de geston de residuos",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('CARPETA para COMPARTIR').first().json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -848,
+        144
+      ],
+      "id": "7728e23d-a07d-45cb-a6f5-cb9c7d60b885",
+      "name": "Upload file2",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1sOhlsa5kfq1mpYtKhDOLULY_ncLVYqRr8g6w0-GKu1k",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Historico_desde_Octubre_2025",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1sOhlsa5kfq1mpYtKhDOLULY_ncLVYqRr8g6w0-GKu1k/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "ID_REG_HIST",
+              "displayName": "ID_REG_HIST",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha_ejec",
+              "displayName": "Fecha_ejec",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sucursal",
+              "displayName": "Sucursal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fecha",
+              "displayName": "Fecha",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Responsable",
+              "displayName": "Responsable",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Com_gral",
+              "displayName": "Com_gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Org_Mix",
+              "displayName": "Org_Mix",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Org_Veg",
+              "displayName": "Org_Veg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Hueso",
+              "displayName": "Hueso",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Sebo",
+              "displayName": "Sebo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Puch",
+              "displayName": "Puch",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Carton",
+              "displayName": "Carton",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Plast",
+              "displayName": "Plast",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Inorg",
+              "displayName": "Inorg",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PDA",
+              "displayName": "PDA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Otros_mat",
+              "displayName": "Otros_mat",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Desc_ani",
+              "displayName": "Desc_ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Desc_gral",
+              "displayName": "Desc_gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Com_desc",
+              "displayName": "Com_desc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Ingreso_extra",
+              "displayName": "Ingreso_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Mat_Extra",
+              "displayName": "Mat_Extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Com_extra",
+              "displayName": "Com_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Foto_extra",
+              "displayName": "Foto_extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SubT_coc",
+              "displayName": "SubT_coc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SubT_carn",
+              "displayName": "SubT_carn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SubT_recic",
+              "displayName": "SubT_recic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SubT_otros",
+              "displayName": "SubT_otros",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Subt_desc",
+              "displayName": "Subt_desc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "TOT_RSU_ConD",
+              "displayName": "TOT_RSU_ConD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "TOT_RSU_SinD",
+              "displayName": "TOT_RSU_SinD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Desc_Porc_Ani",
+              "displayName": "Desc_Porc_Ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Desc_Porc_Gral",
+              "displayName": "Desc_Porc_Gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Desc_Porc_Tot",
+              "displayName": "Desc_Porc_Tot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tasa_Porc_Ani",
+              "displayName": "Tasa_Porc_Ani",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tasa_Porc_Gral",
+              "displayName": "Tasa_Porc_Gral",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Tasa_Porc_Tot",
+              "displayName": "Tasa_Porc_Tot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Alert_RSU_300",
+              "displayName": "Alert_RSU_300",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Alert_DES_50",
+              "displayName": "Alert_DES_50",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Alert_DES%25",
+              "displayName": "Alert_DES%25",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Alert_PDA_0",
+              "displayName": "Alert_PDA_0",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Alert_PDA_20",
+              "displayName": "Alert_PDA_20",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Alert_Extra_Foto",
+              "displayName": "Alert_Extra_Foto",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -2320,
+        -160
+      ],
+      "id": "3daec084-ec2f-4fb8-ab93-910f09eb387f",
+      "name": "ACTU_HIST_DIA1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "5kjNIdvdbdLdXYKx",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1HYVwTYCWeDw7-eqKDM0UT8hrCVriJxHzb1kd7r9_Q2U",
+          "mode": "id"
+        },
+        "name": "={{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }} - Reporte diario general (ID {{ $('ID_Ejec y Fecha_Ret').first().json.ID_Ejec_Act }})",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('CARPETA DIARIA (ID y Fecha)').first().json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -880,
+        -48
+      ],
+      "id": "5e465888-0c0b-49b9-9004-7e25ae77686b",
+      "name": "Copiar Template_GENERAL",
+      "executeOnce": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "replaceText",
+        "presentationId": "={{ $('Copiar Template_GENERAL').first().json.id }}",
+        "textUi": {
+          "textValues": [
+            {
+              "text": "Fecha_retiro",
+              "replaceText": "={{ $('Actualizar planilla diaria').first().json.Fecha }}"
+            },
+            {
+              "text": "“TASA_TOT_D”",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Tasa_Porc_Tot_D) }}"
+            },
+            {
+              "text": "COM_GRAL_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Com_gral_D) }}"
+            },
+            {
+              "text": "XMIX_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Org_Mix_D) }}"
+            },
+            {
+              "text": "XVEG_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Org_Veg_D) }}"
+            },
+            {
+              "text": "XPDA_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.PDA_D) }}"
+            },
+            {
+              "text": "XCAR_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Carton_D) }}"
+            },
+            {
+              "text": "XPLA_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Plast_D) }}"
+            },
+            {
+              "text": "XINO_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Inorg_D) }}"
+            },
+            {
+              "text": "=XHUE_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Hueso_D) }}"
+            },
+            {
+              "text": "=XSEB_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Sebo_D) }}"
+            },
+            {
+              "text": "XPUC_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Puch_D) }}"
+            },
+            {
+              "text": "X_DC_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json['Desc_ani_D']) }}"
+            },
+            {
+              "text": "X_DG_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json['Desc_gral_D']) }}"
+            },
+            {
+              "text": "XCOC_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.SubT_coc_D) }}"
+            },
+            {
+              "text": "XGRA_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.SubT_recic_D) }}"
+            },
+            {
+              "text": "X_TC_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.SubT_carn_D) }}"
+            },
+            {
+              "text": "X_DT_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Subt_desc_D) }}"
+            },
+            {
+              "text": "Fecha_Hoy_D",
+              "replaceText": "={{ $('Schedule Trigger').first().json.timestamp }}"
+            },
+            {
+              "text": "LINK_GRAF_D",
+              "replaceText": "={{ $('Grafico TOTAL_D en Drive').first().json.webViewLink }}"
+            },
+            {
+              "text": "ID_Rta",
+              "replaceText": "={{ String($('ID_Ejec y Fecha_Ret').first().json.ID_Ejec_Act) }}"
+            },
+            {
+              "text": "TOT_RSU_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.TOT_RSU_SinD_D) }}"
+            },
+            {
+              "text": "Alert_RSU_300_D",
+              "replaceText": "={{ String($('CREAR TASAS DIA').first().json.Alert_RSU_300_D) }}"
+            },
+            {
+              "text": "“COM_DESC_D”.",
+              "replaceText": "=Descarte: - {{ $('CREAR TASAS DIA').first().json.Com_desc_D }}."
+            },
+            {
+              "text": "TOT_RAC_D",
+              "replaceText": "={{ String(($('CREAR TASAS DIA').first().json.PDA_D)*4) }}"
+            },
+            {
+              "text": "“TASA_TOT_1”",
+              "replaceText": "={{ String($json.TASA_TOT_1) }}"
+            },
+            {
+              "text": "“TASA_TOT_2”",
+              "replaceText": "={{ String($json.TASA_TOT_2) }}"
+            },
+            {
+              "text": "“TASA_TOT_3”",
+              "replaceText": "={{ String($json.TASA_TOT_3) }}"
+            },
+            {
+              "text": "TOT_RSU_1",
+              "replaceText": "={{ String($json.TOT_RSU_1) }}"
+            },
+            {
+              "text": "TOT_RSU_2",
+              "replaceText": "={{ String($json.TOT_RSU_2) }}"
+            },
+            {
+              "text": "TOT_RSU_3",
+              "replaceText": "={{ String($json.TOT_RSU_3) }}"
+            },
+            {
+              "text": "TOT_RAC_1",
+              "replaceText": "={{ String($json.TOT_RAC_1) }}"
+            },
+            {
+              "text": "TOT_RAC_2",
+              "replaceText": "={{ String($json.TOT_RAC_2) }}"
+            },
+            {
+              "text": "TOT_RAC_3",
+              "replaceText": "={{ String($json.TOT_RAC_3) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSlides",
+      "typeVersion": 2,
+      "position": [
+        -1728,
+        144
+      ],
+      "id": "d42a9efb-2491-4029-adee-e27f62e822bf",
+      "name": "Editar Template__GENERAL",
+      "executeOnce": true,
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "kJAzBBkTRJoxHAi1",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos todos los items (filas) que llegan al nodo\nconst items = $items();\n\n// Si no hay items de entrada, devolvemos un array vacío para detener el flujo.\nif (items.length === 0) {\n  return [];\n}\n\n// Inicializamos un objeto vacío que contendrá nuestra única fila de resultados.\nconst result = {};\n\n// Iteramos a través de cada item (fila) de la entrada.\nfor (const item of items) {\n  // Dentro de cada item, iteramos a través de cada propiedad (columna).\n  for (const key in item.json) {\n    // Creamos el nuevo nombre de la columna con el sufijo \"_D\".\n    const newKey = `${key}_D`;\n    const value = item.json[key];\n\n    // Verificamos si el valor de la celda es un número.\n    if (typeof value === 'number') {\n      // Si es un número, lo sumamos al valor existente en nuestro objeto de resultado.\n      // (result[newKey] || 0) se asegura de que si la propiedad aún no existe, empiece en 0.\n      result[newKey] = (result[newKey] || 0) + value;\n    } else {\n      // Si no es un número (texto, vacío, etc.), solo lo asignamos si aún no existe.\n      // Esto causa que se tome el valor de la primera fila encontrada.\n      if (result[newKey] === undefined) {\n        result[newKey] = value;\n      }\n    }\n  }\n}\n\n// El nodo debe devolver un array de items, en este caso, un array con nuestro único objeto de resultado.\nreturn [{ json: result }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2064,
+        1072
+      ],
+      "id": "273a80ca-cb34-4d70-8b9e-eb7a6c9d3abf",
+      "name": "CREAR VAR_DIA",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "name": "={{ $json.Fecha_D }} - Grafico todas las sucursales",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "=1Iuj-5Zu7_jq6IDmpbmUf7IOY_e-Qv9MZ",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1232,
+        -48
+      ],
+      "id": "1e4f2b61-ab87-4da3-b4fd-0efb82ea1abc",
+      "name": "Grafico TOTAL_D en Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{ $json.Fecha }} - {{ $json.Sucursal }} - Grafico",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "https://drive.google.com/drive/my-drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('CARPETA DIARIA (ID y Fecha)').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1472,
+        -496
+      ],
+      "id": "65b23ad2-0148-43d5-810b-bac62b3d6358",
+      "name": "Grafico Sucursales en Drive",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1XUnW-gOKuz7E56RmddbBXMXBzgA3TdRg6F3hf_3FrIc",
+          "mode": "list",
+          "cachedResultName": "Template_Slide FBR-Multi",
+          "cachedResultUrl": "https://docs.google.com/presentation/d/1XUnW-gOKuz7E56RmddbBXMXBzgA3TdRg6F3hf_3FrIc/edit?usp=drivesdk"
+        },
+        "name": "={{ $('Loop Over Items').item.json.Fecha }} - {{ $('Loop Over Items').item.json.Sucursal }} - Reporte diario de sucursal ",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('CARPETA DIARIA (ID y Fecha)').item.json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1056,
+        -496
+      ],
+      "id": "6587a119-f8cd-42fd-b06e-b300cd7aabd6",
+      "name": "Copiar Template_Suc",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3 _v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "replaceText",
+        "presentationId": "={{ $json.id }}",
+        "textUi": {
+          "textValues": [
+            {
+              "text": "Nom_suc",
+              "replaceText": "={{ $('Loop Over Items').item.json.Sucursal }} "
+            },
+            {
+              "text": "Fecha_retiro",
+              "replaceText": "={{$('Loop Over Items').item.json.Fecha}} "
+            },
+            {
+              "text": "“TOT_COND”",
+              "replaceText": "={{ String($('Loop Over Items').item.json.TOT_RSU_ConD) }}"
+            },
+            {
+              "text": "“TASA_TOT”",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Tasa_Porc_Tot) }}"
+            },
+            {
+              "text": "“COM_GRAL”",
+              "replaceText": "=General: -  {{String($('Loop Over Items').item.json.Com_gral) }}"
+            },
+            {
+              "text": "XMIX",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Org_Mix) }}"
+            },
+            {
+              "text": "XVEG",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Org_Veg) }}"
+            },
+            {
+              "text": "XPDA",
+              "replaceText": "={{String($('Loop Over Items').item.json.PDA) }}"
+            },
+            {
+              "text": "XCAR",
+              "replaceText": "={{String($('Loop Over Items').item.json.Carton) }}"
+            },
+            {
+              "text": "XPLA",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Plast)}}"
+            },
+            {
+              "text": "XINO",
+              "replaceText": "={{String($('Loop Over Items').item.json.Inorg)}}"
+            },
+            {
+              "text": "=XHUE",
+              "replaceText": "={{String($('Loop Over Items').item.json.Hueso)}}"
+            },
+            {
+              "text": "=XSEB",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Sebo)}}"
+            },
+            {
+              "text": "XPUC",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Puch)}}"
+            },
+            {
+              "text": "X_DC",
+              "replaceText": "={{ String($('Loop Over Items').item.json['Desc_ani']) }}"
+            },
+            {
+              "text": "X_DG",
+              "replaceText": "=  {{String($('Loop Over Items').item.json['Desc_gral']) }}"
+            },
+            {
+              "text": "XCOC",
+              "replaceText": "={{ String($('Loop Over Items').item.json.SubT_coc) }}"
+            },
+            {
+              "text": "XGRA",
+              "replaceText": "={{String($('Loop Over Items').item.json.SubT_recic) }}"
+            },
+            {
+              "text": "X_TC",
+              "replaceText": "={{ String($('Loop Over Items').item.json.SubT_carn)}}"
+            },
+            {
+              "text": "X_DT",
+              "replaceText": "={{String($('Loop Over Items').item.json.Subt_desc) }}"
+            },
+            {
+              "text": "Fecha_Hoy",
+              "replaceText": "={{ $('Schedule Trigger').item.json.timestamp }}"
+            },
+            {
+              "text": "LINK_GRAF",
+              "replaceText": "={{$('Grafico Sucursales en Drive').item.json.webViewLink}}"
+            },
+            {
+              "text": "ID_Rta",
+              "replaceText": "={{ String($('Loop Over Items').item.json.ID_REG_HIST) }}"
+            },
+            {
+              "text": "TOT_RSU",
+              "replaceText": "={{ String($('Loop Over Items').item.json.TOT_RSU_SinD)}}"
+            },
+            {
+              "text": "Alert_RSU_300",
+              "replaceText": "={{ String($('Loop Over Items').item.json.Alert_RSU_300)}}"
+            },
+            {
+              "text": "ALERTA_DESC",
+              "replaceText": "={{ $('ALERT_DESC').item.json.ALERTA_DESC  }}"
+            },
+            {
+              "text": "“COM_DESC”.",
+              "replaceText": "=Descarte: - {{ $('Loop Over Items').item.json.Com_desc }}."
+            },
+            {
+              "text": "Resp_reg",
+              "replaceText": "={{ $('Loop Over Items').item.json.Responsable }}"
+            },
+            {
+              "text": "TOT_RAC",
+              "replaceText": "={{  String(($('Loop Over Items').item.json.PDA)*4) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSlides",
+      "typeVersion": 2,
+      "position": [
+        -1984,
+        -304
+      ],
+      "id": "94388a92-0d12-46ed-885d-dbeca4af42c9",
+      "name": "Editar Template_Suc",
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "kJAzBBkTRJoxHAi1",
+          "name": "Google Slides account_v8"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1728,
+        -48
+      ],
+      "id": "137cb20e-deaf-4070-a2bd-b9abcc740dc1",
+      "name": "CREAR TASAS DIA"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos todos los items (filas) de entrada.\nconst items = $items();\n\n// Si no hay datos, detenemos el flujo.\nif (items.length === 0) {\n  return [];\n}\n\n// Objeto que contendrá la fila única de resultado.\nconst result = {};\n\n// Define el nombre de la columna que contiene el nombre de la sucursal.\nconst branchCodeColumn = 'Sucursal';\n\n// --- INICIO DEL PROCESAMIENTO DE FILAS ---\n\n// Iteramos sobre cada fila de entrada.\nfor (const item of items) {\n  // Obtenemos las 3 primeras letras de la sucursal en mayúsculas.\n  const branchName = item.json[branchCodeColumn] || '';\n  const branchCode = branchName.substring(0, 3).toUpperCase() || 'XXX';\n\n  // Iteramos sobre cada columna de la fila.\n  for (const key in item.json) {\n\n    // Evitamos procesar la propia columna de sucursal como un dato más.\n    if (key === branchCodeColumn) {\n      continue;\n    }\n\n    const newKey = `${key}_D`;\n    const value = item.json[key];\n\n    // Lógica para valores numéricos (SUMA).\n    if (typeof value === 'number') {\n      result[newKey] = (result[newKey] || 0) + value;\n\n      // Lógica para valores de texto (CONCATENACIÓN con prefijo).\n    } else if (typeof value === 'string' && value.trim() !== '') {\n      const formattedString = `${branchCode}: ${value}`;\n\n      if (result[newKey]) {\n        result[newKey] += `, ${formattedString}`;\n      } else {\n        result[newKey] = formattedString;\n      }\n\n      // Lógica para otros tipos (nulos, fechas, etc.).\n    } else {\n      // Mantiene el primer valor encontrado (ideal para la Fecha).\n      if (result[newKey] === undefined) {\n        result[newKey] = value;\n      }\n    }\n  }\n}\n\n// --- FIN DEL PROCESAMIENTO DE FILAS ---\n\n\n\n// Devolvemos el resultado final con los valores recalculados.\nreturn [{ json: result }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2048,
+        -48
+      ],
+      "id": "b07c5831-f82c-4f94-89b2-5e7baf1b27c8",
+      "name": "CREAR VAR_DIA1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos el item (la fila única) que llega del nodo anterior.\nconst items = $items();\n\n// Iteramos sobre el item de entrada para modificarlo.\nfor (const item of items) {\n  // --- 1. Extraemos los valores necesarios que terminan en \"_D\" ---\n  // Usamos \"|| 0\" como medida de seguridad por si algún campo viniera nulo.\n  const desc_ani_D = item.json.Desc_ani_D || 0;\n  const subT_carn_D = item.json.SubT_carn_D || 0;\n  const desc_gral_D = item.json.Desc_gral_D || 0;\n  const subT_coc_D = item.json.SubT_coc_D || 0;\n  const subT_recic_D = item.json.SubT_recic_D || 0;\n  const subT_otros_D = item.json.SubT_otros_D || 0;\n  const subt_desc_D = item.json.Subt_desc_D || 0;\n  const tot_rsu_conD_D = item.json.TOT_RSU_ConD_D || 0;\n\n  // --- 2. Realizamos los cálculos intermedios (como decimales) ---\n  const den_ani = desc_ani_D + subT_carn_D;\n  const desc_porc_ani_decimal = den_ani === 0 ? 0 : desc_ani_D / den_ani;\n\n  const den_gral = subT_coc_D + subT_recic_D + subT_otros_D;\n  const desc_porc_gral_decimal = den_gral === 0 ? 0 : desc_gral_D / den_gral;\n\n  const den_tot = tot_rsu_conD_D;\n  const desc_porc_tot_decimal = den_tot === 0 ? 0 : subt_desc_D / den_tot;\n\n  const tasa_porc_ani_decimal = 1 - desc_porc_ani_decimal;\n  const tasa_porc_gral_decimal = 1 - desc_porc_gral_decimal;\n  const tasa_porc_tot_decimal = 1 - desc_porc_tot_decimal;\n\n  // --- 3. Actualizamos las columnas con el resultado final (escala 0-100, sin decimales) ---\n  item.json.Desc_Porc_Ani_D = Math.round(desc_porc_ani_decimal * 100);\n  item.json.Desc_Porc_Gral_D = Math.round(desc_porc_gral_decimal * 100);\n  item.json.Desc_Porc_Tot_D = Math.round(desc_porc_tot_decimal * 100);\n  item.json.Tasa_Porc_Ani_D = Math.round(tasa_porc_ani_decimal * 100);\n  item.json.Tasa_Porc_Gral_D = Math.round(tasa_porc_gral_decimal * 100);\n  item.json.Tasa_Porc_Tot_D = Math.round(tasa_porc_tot_decimal * 100);\n}\n\n// --- 4. Devolvemos el item con las columnas calculadas ---\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1904,
+        -48
+      ],
+      "id": "c1d8096c-7c0b-4d94-8c55-3a75fec825b1",
+      "name": "TASAS DIARIAS"
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $('CARPETA DIARIA (ID y Fecha)').first().json.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1056,
+        -48
+      ],
+      "id": "b4a49405-e2fc-46a2-aaa3-1a6a558b3556",
+      "name": "Mover a DIARIO",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "shPS5jEAdtXYyX2u",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "replaceText",
+        "presentationId": "={{ $('Copiar Template_GENERAL').first().json.id }}",
+        "textUi": {
+          "textValues": [
+            {
+              "text": "={{ $json.reemplazos }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSlides",
+      "typeVersion": 2,
+      "position": [
+        -1728,
+        1088
+      ],
+      "id": "c2926bed-5b50-4e83-9720-955f160373d4",
+      "name": "Editar Template__GENERAL1",
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "kJAzBBkTRJoxHAi1",
+          "name": "Google Slides account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos todas las filas de entrada (Japon, Cordoba, Catamarca, etc.)\nconst items = $items();\n\n// Creamos un objeto vacío que contendrá todos nuestros datos consolidados.\nconst datosConsolidados = {};\n\n// El mapa ahora usa el nombre EXACTO de la columna de tu Google Sheets\n// como la clave para encontrar el dato.\nconst mapaDeVariables = {\n  '2.1. Orgánico mixto (kg)': 'XMIX',\n  '2.2. Orgánico vegetal (kg)': 'XVEG',\n  '2.9. PDA (kg)': 'XPDA',\n  '2.3. Hueso (kg)': 'XHUE',\n  '2.4. Sebo (kg)': 'XSEB',\n  '2.5. Puchero (kg)': 'XPUC',\n  '2.6. Cartón (kg)': 'XCAR',\n  '2.7. Plástico (kg)': 'XPLA',\n  '2.8. Inorgánicos (vidrio, metales, tetra) (kg)': 'XINO',\n  '2.10. Descarte animal (kg)': 'X_DC',   // Asumo que este es Desc_ani\n  '2.11. Descarte general (kg)': 'X_DG', // Asumo que este es Desc_gral\n};\n\n// Iteramos sobre cada fila de entrada (cada sucursal)\nfor (const item of items) {\n  // Corregido: Usamos el nombre exacto de la columna para obtener la sucursal\n  const sucursal = item.json['1.1. Sucursal'];\n  let sufijo = '';\n\n  // Asignamos el sufijo correcto según la sucursal\n  if (sucursal === 'Japón') { // Corregido para usar el acento\n    sufijo = '_1';\n  } else if (sucursal === 'Cordoba') {\n    sufijo = '_2';\n  } else if (sucursal === 'Catamarca') {\n    sufijo = '_3';\n  }\n\n  // Si no se encuentra una sucursal conocida, pasamos a la siguiente fila\n  if (sufijo === '') {\n    continue;\n  }\n\n  // Usamos el mapa para crear las variables con el nombre final (ej: \"XMIX_1\")\n  for (const nombreOriginal in mapaDeVariables) {\n    const nombreBase = mapaDeVariables[nombreOriginal];\n    const nombreFinal = nombreBase + sufijo;\n    \n    // Asignamos el valor al objeto consolidado, convirtiéndolo a String\n    // Nos aseguramos de manejar valores nulos o vacíos con el \"?? 0\"\n    datosConsolidados[nombreFinal] = String(item.json[nombreOriginal] ?? 0);\n  }\n\n  // --- INICIO: CÁLCULOS ADICIONALES ---\n\n  // Para asegurar que los cálculos funcionen, convertimos cada valor a número,\n  // y si está vacío, lo tratamos como 0.\n  const v_mix = Number(item.json['2.1. Orgánico mixto (kg)']) || 0;\n  const v_veg = Number(item.json['2.2. Orgánico vegetal (kg)']) || 0;\n  const v_pda = Number(item.json['2.9. PDA (kg)']) || 0;\n  const v_hue = Number(item.json['2.3. Hueso (kg)']) || 0;\n  const v_seb = Number(item.json['2.4. Sebo (kg)']) || 0;\n  const v_puc = Number(item.json['2.5. Puchero (kg)']) || 0;\n  const v_car = Number(item.json['2.6. Cartón (kg)']) || 0;\n  const v_pla = Number(item.json['2.7. Plástico (kg)']) || 0;\n  const v_ino = Number(item.json['2.8. Inorgánicos (vidrio, metales, tetra) (kg)']) || 0;\n  const v_dca = Number(item.json['2.10. Descarte animal (kg)']) || 0;\n  const v_dcg = Number(item.json['2.11. Descarte general (kg)']) || 0;\n  \n  // 1. Cálculo de TOT_RSU\n  const tot_rsu = v_mix + v_veg + v_pda + v_hue + v_seb + v_puc + v_car + v_pla + v_ino + v_dca + v_dcg;\n\n  // 2. Cálculo de TASA_TOT\n  const numerador_tasa = (tot_rsu - (v_dca + v_dcg));\n  // Se protege contra división por cero y se convierte a porcentaje (0-100)\n  const tasa_tot = tot_rsu !== 0 ? Math.round((numerador_tasa / tot_rsu) * 100) : 0;\n\n  // 3. Cálculo de TOT_RAC\n  const tot_rac = v_pda * 4;\n\n  // Agregamos las nuevas variables al objeto consolidado con su sufijo y como String\n  datosConsolidados['TOT_RSU' + sufijo] = String(tot_rsu);\n  datosConsolidados['TASA_TOT' + sufijo] = String(tasa_tot);\n  datosConsolidados['TOT_RAC' + sufijo] = String(tot_rac);\n\n  // --- FIN: CÁLCULOS ADICIONALES ---\n}\n\n// El nodo devolverá un único item con el objeto que contiene TODAS las variables.\nreturn [{ json: datosConsolidados }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2096,
+        128
+      ],
+      "id": "4c2d3f62-c6a6-4697-abb8-6cef42617971",
+      "name": "ConsolidarDatosSucursales"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos el item que contiene nuestro objeto de datos consolidados.\nconst item = $items(\"ConsolidarDatosSucursales\")[0].json;\n\nconst replacementsArray = [];\n\n// Este código es genérico. Itera sobre CADA variable que creamos en el nodo anterior.\nfor (const nombreVariable in item) {\n  // Crea el formato de placeholder, ej: {{XMIX_1}}\n  const textoAReemplazar = `{{${nombreVariable}}}`;\n  const valorDeReemplazo = item[nombreVariable];\n\n  // Agrega el objeto de reemplazo al array\n  replacementsArray.push({\n    text: textoAReemplazar,\n    replaceWith: valorDeReemplazo\n  });\n}\n\n// Devolvemos un nuevo objeto que solo contiene el array de reemplazos.\n// Esto mantiene el flujo de datos limpio.\nreturn [{ json: { reemplazos: replacementsArray } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1904,
+        1072
+      ],
+      "id": "db2f0a7d-f939-479c-8f00-78aa10addf1f",
+      "name": "CONSOLIDADO_SUCURSALES",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -1904,
+        144
+      ],
+      "id": "db5b4b7f-aee6-467a-b6ee-ef582e555b19",
+      "name": "Merge1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "chooseBranch",
+        "useDataOfInput": 2
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -448,
+        -400
+      ],
+      "id": "19f6e484-6296-4bc3-82ed-a229d2ba8558",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Itera sobre cada fila (item) que recibe el nodo.\nfor (const item of $input.all()) {\n\n  // --- 1. Extrae los valores necesarios de la fila actual ---\n  // Se usa '|| 0' o '|| \"\"' para asignar un valor por defecto si el campo no existe.\n  const tot_rsu_sin_d = item.json.TOT_RSU_SinD || 0;\n  const subt_desc = item.json.Subt_Desc || 0;\n  const desc_porc_tot = item.json.Desc_Porc_Tot || 0;\n  const pda = item.json['2.9. PDA (kg)'] || 0;\n  const foto_material = item.json['3.4. Subir una foto del material extraordinario'] || \"\";\n\n  // --- 2. Evalúa cada condición y crea la variable de alerta ---\n  // La estructura (condicion ? 1 : 0) devuelve 1 si es verdadero, y 0 si es falso.\n  \n  // Se activa cuando \"TOT_RSU_SinD\" es igual o mayor a 300.\n  item.json.Alert_RSU_300 = tot_rsu_sin_d >= 300 ? 1 : 0;\n\n  // Se activa cuando \"Subt_desc\" es igual o mayor a 50.\n  item.json.Alert_DES_50 = subt_desc >= 50 ? 1 : 0;\n  \n  // Se activa cuando \"Desc_Porc_Tot\" es igual o mayor a 0.25.\n  item.json.Alert_DES_25 = desc_porc_tot >= 25 ? 1 : 0;\n  \n  // Se activa cuando \"PDA\" es 0.\n  item.json.Alert_PDA_0 = pda === 0 ? 1 : 0;\n  \n  // Se activa cuando \"PDA\" es igual o mayor a 20.\n  item.json.Alert_PDA_20 = pda >= 20 ? 1 : 0;\n  \n  // Se activa cuando \"Foto del material.\" no está vacio.\n  item.json.Alert_Extra_Foto = foto_material.trim() !== '' ? 1 : 0;\n}\n\n// --- 3. Devuelve la tabla completa con las nuevas columnas de alerta ---\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1280,
+        -800
+      ],
+      "id": "c24d278a-9bf6-482f-8f29-e5a8ec835b50",
+      "name": "CODE 4 - Alertas"
+    },
+    {
+      "parameters": {
+        "height": 304,
+        "width": 720
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2160,
+        736
+      ],
+      "typeVersion": 1,
+      "id": "7c269dfd-1cf0-4455-9755-e2d767aaf83a",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "height": 208,
+        "width": 560
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2080,
+        1056
+      ],
+      "typeVersion": 1,
+      "id": "294c7925-3237-47cd-8648-a1434ae3aa5c",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## _______ 2. Reportes por sucursal",
+        "height": 464,
+        "width": 1184
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2064,
+        -592
+      ],
+      "typeVersion": 1,
+      "id": "e2a6b442-d5aa-4cd1-9e04-4e085a7325c1",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "content": "## 3. TOTALES DIARIOS",
+        "height": 416,
+        "width": 1360
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2096,
+        -96
+      ],
+      "typeVersion": 1,
+      "id": "a2353608-068b-4db9-9e0e-c001d76d7332",
+      "name": "Sticky Note4"
+    },
+    {
+      "parameters": {
+        "content": "## 1. Intro",
+        "height": 384,
+        "width": 1392
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2384,
+        -992
+      ],
+      "typeVersion": 1,
+      "id": "c8e41828-b899-4ef1-a418-7e0aebe919a9",
+      "name": "Sticky Note5"
+    },
+    {
+      "parameters": {
+        "sendTo": "santiago@krbon.me, bancoder3siduos@gmail.com",
+        "subject": "=RESUMEN {{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }} - Reportes diarios del Plan de gestión de residuos ",
+        "emailType": "text",
+        "message": "=\nJAPON - {{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }} - Total: {{ $('ConsolidarDatosSucursales').first().json.TOT_RSU_1 }} kg - Efect  = {{ $('ConsolidarDatosSucursales').first().json.TASA_TOT_1 }} %.\nMixto: {{ $('ConsolidarDatosSucursales').first().json.XMIX_1 }}. Vegetal: {{ $('ConsolidarDatosSucursales').first().json.XVEG_1 }}. PDA:{{ $('ConsolidarDatosSucursales').first().json.XPDA_1 }}. Hueso: {{ $('ConsolidarDatosSucursales').first().json.XHUE_1 }}. Sebo: {{ $('ConsolidarDatosSucursales').first().json.XSEB_1 }}. Puchero: {{ $('ConsolidarDatosSucursales').first().json.XPUC_1 }}. Carton: {{ $('ConsolidarDatosSucursales').first().json.XCAR_1 }}. Plastico: {{ $('ConsolidarDatosSucursales').first().json.XPLA_1 }}. Inorganico: {{ $('ConsolidarDatosSucursales').first().json.XINO_1 }}. Desc Ani: {{ $('ConsolidarDatosSucursales').first().json.X_DC_1 }}. Desc gral: {{ $('ConsolidarDatosSucursales').first().json.X_DG_1 }}.\n\nCORDOBA - {{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }} - Total: {{ $('ConsolidarDatosSucursales').first().json.TOT_RSU_2 }} kg - Efect  = {{ $('ConsolidarDatosSucursales').first().json.TASA_TOT_2 }} %.\nMixto: {{ $('ConsolidarDatosSucursales').first().json.XMIX_2 }}. Vegetal: {{ $('ConsolidarDatosSucursales').first().json.XVEG_2 }}. PDA:{{ $('ConsolidarDatosSucursales').first().json.XPDA_2 }}. Hueso: {{ $('ConsolidarDatosSucursales').first().json.XHUE_2 }}. Sebo: {{ $('ConsolidarDatosSucursales').first().json.XSEB_2 }}. Puchero: {{ $('ConsolidarDatosSucursales').first().json.XPUC_2 }}. Carton: {{ $('ConsolidarDatosSucursales').first().json.XCAR_2 }}. Plastico: {{ $('ConsolidarDatosSucursales').first().json.XPLA_2 }}. Inorganico: {{ $('ConsolidarDatosSucursales').first().json.XINO_2 }}. Desc Ani: {{ $('ConsolidarDatosSucursales').first().json.X_DC_2 }}. Desc gral: {{ $('ConsolidarDatosSucursales').first().json.X_DG_2 }}.\n\nCATAMARCA - {{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }} - Total: {{ $('ConsolidarDatosSucursales').first().json.TOT_RSU_3 }} kg - Efect  = {{ $('ConsolidarDatosSucursales').first().json.TASA_TOT_3 }} %.\nMixto: {{ $('ConsolidarDatosSucursales').first().json.XMIX_3 }}. Vegetal: {{ $('ConsolidarDatosSucursales').first().json.XVEG_3 }}. PDA:{{ $('ConsolidarDatosSucursales').first().json.XPDA_3 }}. Hueso: {{ $('ConsolidarDatosSucursales').first().json.XHUE_3 }}. Sebo: {{ $('ConsolidarDatosSucursales').first().json.XSEB_3 }}. Puchero: {{ $('ConsolidarDatosSucursales').first().json.XPUC_3 }}. Carton: {{ $('ConsolidarDatosSucursales').first().json.XCAR_3 }}. Plastico: {{ $('ConsolidarDatosSucursales').first().json.XPLA_3 }}. Inorganico: {{ $('ConsolidarDatosSucursales').first().json.XINO_3 }}. Desc Ani: {{ $('ConsolidarDatosSucursales').first().json.X_DC_3 }}. Desc gral: {{ $('ConsolidarDatosSucursales').first().json.X_DG_3 }}.\n\nVan link a la carpeta con los reportes diarios de residuos del día {{ $('ID_Ejec y Fecha_Ret').first().json.Fecha_Ret }}.\n\nhttps://drive.google.com/drive/folders/{{ $('CARPETA para COMPARTIR').first().json.id }}\n\nQuedo a disposición, saludos\n\nSantiago",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -128,
+        -400
+      ],
+      "id": "637dd9f7-f924-4bd8-b531-0dc9cede14c2",
+      "name": "ENVIO INTERNO",
+      "webhookId": "b2b82993-bca2-41d8-8f94-de00cc2313d6",
+      "executeOnce": true,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "IIRaKUBpFauRmyBr",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -992,
+        -304
+      ],
+      "id": "ea2394a1-6fb8-47de-896d-8d824dbb671d",
+      "name": "Wait",
+      "webhookId": "4525815f-5a24-4e50-bee8-066d0dccc742"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "LEER Hist_ejec",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer forms": {
+      "main": [
+        [
+          {
+            "node": "CODE_1 - FECHA e ID",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "CODE_2 - DAX",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ConsolidarDatosSucursales",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agregar ID y fecha proc N8N": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Crear hoja diaria": {
+      "main": [
+        [
+          {
+            "node": "Move file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear Columnas": {
+      "main": [
+        [
+          {
+            "node": "Eliminar fila de más",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Definir Columnas": {
+      "main": [
+        [
+          {
+            "node": "Crear Columnas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Eliminar fila de más": {
+      "main": [
+        [
+          {
+            "node": "Leer forms",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Actualizar planilla diaria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualizar planilla diaria": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ACTU_HIST_DIA1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "CREAR VAR_DIA1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Preparar_grafico",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar_grafico": {
+      "main": [
+        [
+          {
+            "node": "Quick Chart",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quick Chart": {
+      "main": [
+        [
+          {
+            "node": "Grafico Sucursales en Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SETEAR COLUMNAS": {
+      "main": [
+        [
+          {
+            "node": "Definir Columnas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hay ingreso extra?": {
+      "main": [
+        [
+          {
+            "node": "COPIAR_TEMPL_2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "COPIAR_TEMPL_2": {
+      "main": [
+        [
+          {
+            "node": "Editar Template_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Editar Template_2": {
+      "main": [
+        [
+          {
+            "node": "Exportar Reporte_2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exportar Reporte_1": {
+      "main": [
+        [
+          {
+            "node": "Upload file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exportar Reporte_2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        []
+      ]
+    },
+    "LEER Hist_ejec": {
+      "main": [
+        [
+          {
+            "node": "ID_Ejec y Fecha_Ret",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ID_Ejec y Fecha_Ret": {
+      "main": [
+        [
+          {
+            "node": "CARPETA DIARIA (ID y Fecha)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CARPETA DIARIA (ID y Fecha)": {
+      "main": [
+        [
+          {
+            "node": "Crear hoja diaria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CODE_1 - FECHA e ID": {
+      "main": [
+        [
+          {
+            "node": "Agregar ID y fecha proc N8N",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CODE_2 - DAX": {
+      "main": [
+        [
+          {
+            "node": "CODE_3 - Tasas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CODE_3 - Tasas": {
+      "main": [
+        [
+          {
+            "node": "CODE 4 - Alertas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Move file": {
+      "main": [
+        [
+          {
+            "node": "CARPETA para COMPARTIR",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CODE 5 - Mails por sucursal": {
+      "main": [
+        [
+          {
+            "node": "CODE 6 - KPIs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ALERT_DESC": {
+      "main": [
+        [
+          {
+            "node": "Copiar Template_Suc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identificar Slide": {
+      "main": [
+        [
+          {
+            "node": "PREPARAR REMPLAZO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PREPARAR REMPLAZO": {
+      "main": [
+        [
+          {
+            "node": "REMPLAZAR GRAFICO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "REMPLAZAR GRAFICO": {
+      "main": [
+        [
+          {
+            "node": "Exportar Reporte_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CARPETA para COMPARTIR": {
+      "main": [
+        [
+          {
+            "node": "SETEAR COLUMNAS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ENVIO DE REPORTE DIARIO": {
+      "main": [
+        [
+          {
+            "node": "ENVIO INTERNO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Preparar_grafico2": {
+      "main": [
+        [
+          {
+            "node": "Quick Chart2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quick Chart2": {
+      "main": [
+        [
+          {
+            "node": "Grafico TOTAL_D en Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Exportar Reporte_": {
+      "main": [
+        [
+          {
+            "node": "Upload file2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identificar Slide1": {
+      "main": [
+        [
+          {
+            "node": "PREPARAR REMPLAZO1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PREPARAR REMPLAZO1": {
+      "main": [
+        [
+          {
+            "node": "REMPLAZAR GRAFICO1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "REMPLAZAR GRAFICO1": {
+      "main": [
+        [
+          {
+            "node": "Exportar Reporte_",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file2": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Copiar Template_GENERAL": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Editar Template__GENERAL": {
+      "main": [
+        [
+          {
+            "node": "Identificar Slide1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CREAR VAR_DIA": {
+      "main": [
+        []
+      ]
+    },
+    "Grafico TOTAL_D en Drive": {
+      "main": [
+        [
+          {
+            "node": "Mover a DIARIO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Grafico Sucursales en Drive": {
+      "main": [
+        [
+          {
+            "node": "ALERT_DESC",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Copiar Template_Suc": {
+      "main": [
+        [
+          {
+            "node": "Editar Template_Suc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Editar Template_Suc": {
+      "main": [
+        [
+          {
+            "node": "Identificar Slide",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CREAR VAR_DIA1": {
+      "main": [
+        [
+          {
+            "node": "TASAS DIARIAS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TASAS DIARIAS": {
+      "main": [
+        [
+          {
+            "node": "CREAR TASAS DIA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CREAR TASAS DIA": {
+      "main": [
+        [
+          {
+            "node": "Preparar_grafico2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mover a DIARIO": {
+      "main": [
+        [
+          {
+            "node": "Copiar Template_GENERAL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Editar Template__GENERAL1": {
+      "main": [
+        []
+      ]
+    },
+    "ConsolidarDatosSucursales": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CONSOLIDADO_SUCURSALES": {
+      "main": [
+        [
+          {
+            "node": "Editar Template__GENERAL1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Editar Template__GENERAL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "ENVIO DE REPORTE DIARIO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CODE 4 - Alertas": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ENVIO INTERNO": {
+      "main": [
+        []
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "92955a28-9494-4396-805c-9d1ed77f3156",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "bdf121856158d18483990c335091582207954a38449edc80f4e7d2a9c8a9f858"
+  },
+  "id": "QdBV68LnjOKkGv3c",
+  "tags": []
+}
